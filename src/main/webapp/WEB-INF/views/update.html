@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Update book</h1>
+<p><a th:href="@{/books}">Back to book list</a></p>
+<form style="margin: auto" th:action="@{/books/update/{id}(id=${book.getId()})}" th:object="${book}">
+    Name <input type="text" th:field="*{name}"> <br>
+    Author <input type="text" th:field="*{author}"> <br>
+    Price <input type="text" th:field="*{price}"> <br>
+    Img <input type="text" th:field="*{img}"> <br>
+    <select th:field="*{category}">
+        <option th:each="c : ${category}" th:text="${c.getName()}" th:value="${c.getId()}"></option>
+    </select>
+    <input type="submit" value="edit">
+</form>
+</body>
+</html>

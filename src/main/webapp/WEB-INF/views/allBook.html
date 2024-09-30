@@ -8,7 +8,7 @@
 <body>
 <a th:href="@{/books/showCreate}">Them moi sach</a>
 
-<table>
+<table border="1" style="margin: auto">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -23,9 +23,9 @@
         <td th:text="${b.getAuthor()}"></td>
         <td th:text="${b.getPrice()}"></td>
         <td th:text="${b.getImg()}"></td>
-        <td th:text="${b.getCategory()}"></td>
-        <td>Update</td>
-        <td>Delete</td>
+        <td th:text="${b.getCategory().getName()}"></td>
+        <td><a th:href="@{/books/showUpdate/{id}(id=${b.getId()})}">Update</a></td>
+        <td><a th:href="@{/books/delete/{id}(id=${b.getId()})}">Delete</a></td>
     </tr>
 </table>
 </body>
